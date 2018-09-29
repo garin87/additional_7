@@ -45,15 +45,15 @@ function is_safe(matrix, row, col, number) {
 }
 
 function mainSudoku(matrix, row, col) {
-    var cell = findUnassignedLocation(matrix, row, col);
-    row = cell[0];
-    col = cell[1];
+    var index = findUnassignedLocation(matrix, row, col);
+    row = index[0];
+    col = index[1];
 
     if (row == -1) return true;
     
     for (var number = 1; number <= 9; number++) {
 
-        if ( is_safe(matrix, cell[0], cell[1], number) ) {   
+        if ( is_safe(matrix, index[0], index[1], number) ) {   
             matrix[row][col] = number;
 
             if ( mainSudoku(matrix, 9, 9) ) {                
